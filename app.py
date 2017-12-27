@@ -15,20 +15,20 @@ def display_welcome():
     """Displays welcome message"""
     return {'Welcome': 'Base64 Enc/Dec Microservice'}
 
-@app.route('/b64e/{string_to_enc}')
-def encode_string(string_to_enc):
+@app.route('/encode/{string}')
+def encode_string(string):
     """Encode string by Base64"""
     try:
-        resp = base64.b64encode(string_to_enc)
+        resp = base64.b64encode(string)
         return {'response': resp}
     except TypeError:
         raise BadRequestError("Invalid string, check your input.")
 
-@app.route('/b64d/{string_to_dec}')
-def decode_string(string_to_dec):
+@app.route('/decode/{string}')
+def decode_string(string):
     """Decode Base64 string"""
     try:
-        resp = base64.b64decode(string_to_dec)
+        resp = base64.b64decode(string)
         return {'response': resp}
     except UnicodeDecodeError as exc:
         raise ChaliceViewError("Invalid start byte" + str(exc))
