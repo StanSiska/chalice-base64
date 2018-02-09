@@ -1,6 +1,10 @@
 language: python
+
 before_install:
-  - pip install chalice
+  - sudo apt-get update -qq
+
+install:
+  - echo "Installation in progress.."
 
 deploy:
   skip_cleanup: true
