@@ -4,7 +4,11 @@ before_install:
   - sudo apt-get update -qq
 
 install:
+  - pip install -r requirements.txt
   - echo "Installation in progress.."
 
+script: 
+  - chalice deploy
+  
 deploy:
   skip_cleanup: true
